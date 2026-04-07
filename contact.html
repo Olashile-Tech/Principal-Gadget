@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="phones.html">Phones</a>
+      <a href="estate.html">Estate</a>
+      <a href="contact.html">Contact</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section style="max-width:600px; margin:40px auto; padding:10px;">
+      <h2>Get in Touch</h2>
+      <p>If you want to place an order or inquire about our services, contact us directly:</p>
+
+      <p>
+        <strong>Phone/WhatsApp:</strong> 
+        <a href="https://wa.me/2347049548507" target="_blank">+23470xxxxxxxx</a>
+      </p>
+
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <p id="formMessage" style="color:green; margin-top:10px;"></p>
+    </section>
+  </main>
+
+  <script>
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    contactForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      // Simple JS feedback (no backend yet)
+      formMessage.textContent = "Thank you! Your message has been received.";
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>

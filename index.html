@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Homepage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>Welcome to Principal Gadgets & Real Estate Management</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="phones.html">Phones</a>
+      <a href="estate.html">Estate</a>
+      <a href="contact.html">Contact</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" style="text-align:center; padding:40px 10px;">
+      <h2>High-Quality Phones, Accessories & Estate Services</h2>
+      <p>Browse our products or properties and contact us directly through WhatsApp!</p>
+      <a href="phones.html"><button>View Phones</button></a>
+      <a href="estate.html"><button>View Properties</button></a>
+    </section>
+
+    <!-- Preview Section -->
+    <section style="margin:40px 0;">
+      <h2 style="text-align:center; margin-bottom:20px;">Latest Products</h2>
+      <div id="previewProducts" class="products-grid">
+        <!-- Preview products from localStorage -->
+      </div>
+    </section>
+
+    <section style="margin:40px 0;">
+      <h2 style="text-align:center; margin-bottom:20px;">Featured Properties</h2>
+      <div id="previewEstate" class="products-grid">
+        <!-- Preview properties from localStorage -->
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Display latest 4 phones
+    const previewProducts = document.getElementById('previewProducts');
+    const previewEstate = document.getElementById('previewEstate');
+    const products = JSON.parse(localStorage.getItem('products') || '[]');
+
+    const phoneItems = products.filter(p => p.type === 'phone').slice(-4);
+    const estateItems = products.filter(p => p.type === 'estate').slice(-4);
+
+    phoneItems.forEach(p => {
+      const div = document.createElement('div');
+      div.classList.add('product-item');
+      div.innerHTML = `
+        <img src="${p.image}" alt="${p.name}" width="150">
+        <h3>${p.name}</h3>
+        <p>₦${p.price}</p>
+      `;
+      previewProducts.appendChild(div);
+    });
+
+    estateItems.forEach(p => {
+      const div = document.createElement('div');
+      div.classList.add('product-item');
+      div.innerHTML = `
+        <img src="${p.image}" alt="${p.name}" width="150">
+        <h3>${p.name}</h3>
+        <p>₦${p.price}</p>
+      `;
+      previewEstate.appendChild(div);
+    });
+  </script>
+</body>
+</html>
