@@ -1,78 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Homepage</title>
+  <title>Principal Gadgets & Real Estate</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header>
-    <h2>Welcome to Principal Gadgets & Real Estate Management</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="phones.html">Phones</a>
-      <a href="estate.html">Estate</a>
-      <a href="contact.html">Contact</a>
-      <a href="admin.html">Admin</a>
-    </nav>
-  </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero" style="text-align:center; padding:40px 10px;">
-      <h2>High-Quality Phones, Accessories & Estate Services</h2>
-      <p>Browse our products or properties and contact us directly through WhatsApp!</p>
-      <a href="phones.html"><button>View Phones</button></a>
-      <a href="estate.html"><button>View Properties</button></a>
-    </section>
+<header>
+  <img src="FTMW0890.JPG" width="120px" alt="logo">
+  <h1>Principal Gadgets & Real Estate</h1>
+  <p>Your trusted plug for gadgets & properties</p>
+</header>
 
-    <!-- Preview Section -->
-    <section style="margin:40px 0;">
-      <h2 style="text-align:center; margin-bottom:20px;">Latest Products</h2>
-      <div id="previewProducts" class="products-grid">
-        <!-- Preview products from localStorage -->
-      </div>
-    </section>
+<nav>
+  <a href="#gadgets">Gadgets</a>
+  <a href="#estate">Real Estate</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-    <section style="margin:40px 0;">
-      <h2 style="text-align:center; margin-bottom:20px;">Featured Properties</h2>
-      <div id="previewEstate" class="products-grid">
-        <!-- Preview properties from localStorage -->
-      </div>
-    </section>
-  </main>
+<section id="gadgets">
+  <h2>📱 Gadgets</h2>
 
-  <script>
-    // Display latest 4 phones
-    const previewProducts = document.getElementById('previewProducts');
-    const previewEstate = document.getElementById('previewEstate');
-    const products = JSON.parse(localStorage.getItem('products') || '[]');
+  <div class="card">
+    <h3>Phones & Accessories</h3>
+    <p>Available (iPhones, Samsung, AirPods, Chargers, etc.)</p>
+    <img src="CLPT5560.JPG" width="150" alt="iphone"><img src="FWCC2886.JPG" width="150" alt="iphone"> <br><img src="IMG_3819.PNG" width="150" alt="iphone"><img src="IMG_3829.PNG" width="150" alt="iphone">
+    <br><button onclick="contact()">Contact for Price</button>
+  </div>
 
-    const phoneItems = products.filter(p => p.type === 'phone').slice(-4);
-    const estateItems = products.filter(p => p.type === 'estate').slice(-4);
+  <div class="card">
+    <h3>Laptops</h3>
+    <p>All models available</p>
+    <img src="GBFH1750.JPG" width="150" alt="laptop">
+   <br> <button onclick="contact()">Contact for Price</button>
+  </div>
+</section>
 
-    phoneItems.forEach(p => {
-      const div = document.createElement('div');
-      div.classList.add('product-item');
-      div.innerHTML = `
-        <img src="${p.image}" alt="${p.name}" width="150">
-        <h3>${p.name}</h3>
-        <p>₦${p.price}</p>
-      `;
-      previewProducts.appendChild(div);
-    });
+<section id="estate">
+  <h2>🏠 Real Estate</h2>
 
-    estateItems.forEach(p => {
-      const div = document.createElement('div');
-      div.classList.add('product-item');
-      div.innerHTML = `
-        <img src="${p.image}" alt="${p.name}" width="150">
-        <h3>${p.name}</h3>
-        <p>₦${p.price}</p>
-      `;
-      previewEstate.appendChild(div);
-    });
-  </script>
+  <div class="card">
+    <h3>Land Sales</h3>
+    <p>Available in Saki (Ijale-Oda)</p>
+    <button onclick="contact()">Contact for Price</button>
+  </div>
+
+  <div class="card">
+    <h3>House Construction</h3>
+    <p>We build houses to your taste</p>
+    <button onclick="contact()">Contact for Price</button>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>📞 Contact</h2>
+  <p>Location: Saki, Oyo State</p>
+
+  <button onclick="contact()">Chat on WhatsApp</button>
+</section>
+
+<script src="script.js"></script>
+
 </body>
 </html>

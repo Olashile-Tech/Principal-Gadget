@@ -5,7 +5,7 @@ const addProductForm = document.getElementById('addProductForm');
 const productList = document.getElementById('productList');
 const logoutBtn = document.getElementById('logoutBtn');
 
-// ADMIN CREDENTIALS
+// LOGIN FORM
 const adminUser = "admin";
 const adminPass = "1234";
 
@@ -15,7 +15,7 @@ loginForm.addEventListener('submit', function(e){
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
-  if(username === adminUser && password === adminPass){
+  if(username === "admin"  & password === "1234"){
     loginForm.style.display = "none";
     dashboard.style.display = "block";
     loadProducts();
